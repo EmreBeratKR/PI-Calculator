@@ -6,7 +6,7 @@ public class DotSpawner : Scenegleton<DotSpawner>
 {
     public const int DOT_POOL_LIMIT = 50000;
     public const int DOT_POOLING_PER_FRAME = 100000;
-    public const int SPAWN_PER_FRAME = 200;
+    public const int SPAWN_PER_FRAME = 1000;
 
 
     [SerializeField] private Dot dotPrefab;
