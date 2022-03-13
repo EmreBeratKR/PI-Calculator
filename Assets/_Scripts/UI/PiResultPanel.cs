@@ -8,6 +8,7 @@ public class PiResultPanel : Scenegleton<PiResultPanel>
     [SerializeField] private TextMeshProUGUI piResultText;
     [SerializeField] private TextMeshProUGUI dotsCounter;
 
+    public static char FLOAT_SEPARATOR => 1.1f.ToString()[1];
     public const char INT_PART = '3';
     public const string DECIMAL_PART = "1415926535897932";
     public const string WRONG_HEX_COLOR = "FF0000";
@@ -22,7 +23,7 @@ public class PiResultPanel : Scenegleton<PiResultPanel>
     {
         get
         {
-            string[] parts = PiCalculator.Instance.closestPI.ToString().Split('.');
+            string[] parts = PiCalculator.Instance.closestPI.ToString().Split(FLOAT_SEPARATOR);
 
             string intPart = parts[0];
             string decimalPart = parts[1];
@@ -35,7 +36,7 @@ public class PiResultPanel : Scenegleton<PiResultPanel>
                 decimalPartColored += SubColoredText(decimalPart[i].ToString(), decimalPart[i] == DECIMAL_PART[i] ? CORRECT_HEX_COLOR : WRONG_HEX_COLOR);
             }
 
-            return "PI: " + intPartColored + "." + decimalPartColored;
+            return "PI: " + intPartColored + FLOAT_SEPARATOR + decimalPartColored;
         }
     }
 
